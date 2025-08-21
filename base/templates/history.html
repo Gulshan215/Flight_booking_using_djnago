@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Deleted Booking History</h1>
+
+{% for book in deleted_bookings %}
+    <div class="card">
+        <p><strong>Name:</strong> {{ book.name }}</p>
+        <p><strong>Email:</strong> {{ book.email }}</p>
+        <p><strong>Phone:</strong> {{ book.phno }}</p>
+        <p><strong>Age:</strong> {{ book.age }}</p>
+        <p><strong>Flight:</strong> {{ book.flight_name }} ({{ book.airline|title }})</p>
+        <p><em>Deleted on: {{ book.deleted_at }}</em></p>
+        <h3 class="btn">
+        <a href="{% url 'recover_booking' book.id %}">🔄 Recover</a> |
+        <a href="{% url 'delete_forever' book.id %}">🗑️ Delete Permanently</a>
+       </h3>
+        <hr>
+    </div>
+{% empty %}
+    <p>No deleted bookings found.</p>
+{% endfor %}
+{% endblock content %}

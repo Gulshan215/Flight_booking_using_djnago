@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+   <div class="booking">
+    <h2>Edit the Form</h2><br><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="" style="padding-right: 40px;">Name: </label>
+        <input type="text" name="name" value="{{book.name}}"><br><br>
+        <label for="" style="padding-right: 22px;">Email Id.: </label>
+        <input type="email" name="email" value="{{book.email}}"><br><br>
+        <label for="" style="padding-right: 15px;">Phone No.: </label>
+        <input type="number" name="phno" value="{{book.phno}}"><br><br>
+        <label for="">Flight Name: </label>
+        <input type="text" name="flight_name" value="{{book.flight_name}}"><br><br>
+        <label for="" style="padding-right: 55px;">Age: </label>
+        <input type="number" name="age" value="{{book.age}}"><br><br>
+        
+        <input type="submit" value="Save">
+    </form>
+   </div>
+</center>
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <center>
+        <h2>You sure want to delete the Booking?</h2>
+            <a href="{% url 'del' book.id %}">Delete</a>
+            <a href="{% url 'booking_details' %}">Cancel</a>
+        
+    </center>
+
+{% endblock content %}

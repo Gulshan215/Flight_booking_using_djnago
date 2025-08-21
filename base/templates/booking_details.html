@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <center>
+<h1>Booking Summary</h1>
+
+{% for item in detailed_bookings %}
+    <div class="card">
+        {% if item.flight %}
+            <h3>Flight Details</h3>
+            <p>Flight Number: {{ item.flight.flight_number }}</p>
+            <p>From: {{ item.flight.depart_from }} → {{ item.flight.destination }}</p>
+            <p>Departure: {{ item.flight.departure_time }}</p>
+            <p>Arrival: {{ item.flight.arrival_time }}</p>
+            <p>Price: ₹{{ item.flight.price }}</p>
+        {% else %}
+            <p style="color:red;">Flight info not found.</p>
+        {% endif %}
+
+        <h2>Passenger: {{ item.booking.name }}</h2>
+        <p>Email: {{ item.booking.email }}</p>
+        <p>Phone: {{ item.booking.phno }}</p>
+        <p>Age: {{ item.booking.age }}</p>
+        <p>Flight Name: {{ item.booking.flight_name }}</p>
+       <h3 class="btn">
+        <a href="{% url 'edit' item.booking.id %}">Edit</a>
+        <a href="{% url 'confirm_del' item.booking.id %}">Delete</a>
+       </h3>
+
+        <hr>
+    </div>
+{% endfor %}
+
+    </center>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <div class="airlines">
+        <div class="air_name"><a href="{% url 'indigo' %}"><h2>Indigo</h2></a></div>
+        <div class="air_name"><a href="{% url 'airindia' %}"><h2>Air India</h2></a></div>
+        <div class="air_name"><a href="{% url 'spicejet' %}"><h2>SpiceJet</h2></a></div>
+        <div class="air_name"><a href="{% url 'tara' %}"><h2>Vistara</h2></a></div>
+        <div class="air_name"><a href="{% url 'first' %}"><h2>Go First</h2></a></div>
+    </div>
+</center>
+{% endblock content %}

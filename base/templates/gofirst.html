@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="flights">
+    {% for i in go %}
+        <div class="details">
+            <h2>Flight Name: {{i.name}}</h2>
+            <h2>flight_number : {{i.flight_number }}</h2>
+            <h2>depart_from: {{i.depart_from}}</h2>
+            <h2>departure_time: {{i.departure_time}}</h2>
+            <h2>destination : {{i.destination }}</h2>
+            <h2>arrival_time: {{i.arrival_time}}</h2>
+            <h2>Price: Rs. {{i.price}}</h2><br>
+            <button><a href="{% url 'booking' airline='gofirst' pk=i.id %}">Book Flight</a></button>
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+{% endblock content %}
